@@ -3,6 +3,12 @@
   margin: 0;
 }
 
+.choice:hover {
+  cursor: pointer;
+  border: 1px solid #DFE914;
+  border-radius: 25px;
+}
+
 .selected {
   color: black;
   background-color: #DFE914;
