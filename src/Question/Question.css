@@ -1,0 +1,17 @@
+.choice {
+  padding: .5vw;
+  margin: 0;
+}
+
+.selected {
+  color: black;
+  background-color: #DFE914;
+  padding: .5vw;
+  margin: 0;
+  border: .25vw solid white;
+  border-radius: 25px;
+}
+
+.question {
+  margin-left: -2vw;
+}
