@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/trivia-film/static/css/main.3329d059.chunk.css",
+    "main.css": "/trivia-film/static/css/main.dee940ac.chunk.css",
     "main.js": "/trivia-film/static/js/main.53a7e90d.chunk.js",
     "main.js.map": "/trivia-film/static/js/main.53a7e90d.chunk.js.map",
     "runtime-main.js": "/trivia-film/static/js/runtime-main.eed2d869.js",
@@ -10,13 +10,13 @@
     "static/js/3.70c5d781.chunk.js": "/trivia-film/static/js/3.70c5d781.chunk.js",
     "static/js/3.70c5d781.chunk.js.map": "/trivia-film/static/js/3.70c5d781.chunk.js.map",
     "index.html": "/trivia-film/index.html",
-    "static/css/main.3329d059.chunk.css.map": "/trivia-film/static/css/main.3329d059.chunk.css.map",
+    "static/css/main.dee940ac.chunk.css.map": "/trivia-film/static/css/main.dee940ac.chunk.css.map",
     "static/js/2.fab65cac.chunk.js.LICENSE.txt": "/trivia-film/static/js/2.fab65cac.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.eed2d869.js",
     "static/js/2.fab65cac.chunk.js",
-    "static/css/main.3329d059.chunk.css",
+    "static/css/main.dee940ac.chunk.css",
     "static/js/main.53a7e90d.chunk.js"
   ]
 }
