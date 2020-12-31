@@ -9,7 +9,8 @@ class App extends Component {
     this.state = {
       questions: [],
       answers: { 0: false, 1: false, 2: false, 3: false, 4: false, 5: false, 6: false, 7: false, 8: false, 9: false },
-      score: ''
+      score: '',
+      gameOver: false
     }
   }
 
@@ -35,17 +36,18 @@ class App extends Component {
         numCorrect += 1;
       }
     });
-    await this.setState({ score: `${numCorrect} out of ${userAnswers.length}` })
+    await this.setState({ score: `${numCorrect} out of ${userAnswers.length}`, gameOver: true })
     return `${numCorrect}/${userAnswers.length}`;
   }
 
   resetApp = async () => {
     this.setState({ answers: { 0: false, 1: false, 2: false, 3: false, 4: false, 5: false, 6: false, 7: false, 8: false, 9: false }, score: '' });
     await getData()
-    .then(data => this.setState({ questions: data.results }))
+    .then(data => this.setState({ questions: data.results, gameOver: false }))
   }
 
   render() {
+    console.log(this.state.questions[0])
     return (
       <div className="App">
         <h1 className='greeting'>Welcome to Film Trivia!</h1>
@@ -56,6 +58,7 @@ class App extends Component {
             scoreQuiz={ this.scoreQuiz }
             score={ this.state.score }
             reset={ this.resetApp }
+            gameOver={ this.state.gameOver }
           />
         </main>
       </div>

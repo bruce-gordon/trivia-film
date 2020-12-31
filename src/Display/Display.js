@@ -2,16 +2,18 @@ import React from 'react';
 import './Display.css';
 import Question from '../Question/Question.js';
 
-const Display = ({ questions, updateAnswers, scoreQuiz, score, reset }) => {
+const Display = ({ questions, updateAnswers, scoreQuiz, score, reset, gameOver }) => {
   const questionList = questions.map((question, index) => {
+    const randomNum = Date.now();
     return (
       <Question
-        key={ index }
+        key={ `${index}${question.correct_answer}`  }
         id = { index }
         q={ question.question }
         correct={ question.correct_answer }
         incorrect={ question.incorrect_answers }
         updateAnswers={ updateAnswers }
+        gameOver={ gameOver }
       />
     )
   })

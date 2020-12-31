@@ -18,6 +18,23 @@
   border-radius: 25px;
 }
 
+.incorrect {
+  color: white;
+  background-color: red;
+  padding: .5vw;
+  margin: 0;
+  border: .25vw solid white;
+  border-radius: 25px;
+}
+.correct {
+  color: white;
+  background-color: green;
+  padding: .5vw;
+  margin: 0;
+  border: .25vw solid white;
+  border-radius: 25px;
+}
+
 .question {
   margin-left: -2vw;
 }

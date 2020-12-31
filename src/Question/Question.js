@@ -6,9 +6,13 @@ class Question extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      correct: this.props.correct,
+      correct: '',
       selected: ''
     }
+  }
+
+  componentDidMount = () => {
+    this.setState({ correct: this.props.correct, selected: '' })
   }
 
   sortChoices = () => {
@@ -33,26 +37,65 @@ class Question extends Component {
     return (answer === this.state.correct) ? true : false;
   }
 
-  checkSelected = (index, letter) => {
-    if (this.state.selected === this.decodeChoices()[index]) {
+  checkSubmitted = (index, letter) => {
+    if (this.state.correct === this.decodeChoices()[index]) {
       return (
-      <div className='selected' onClick={ this.handleClick }>{`${letter}) `}
+        <div className='correct' onClick={ this.handleClick }>{`${letter}) `}
         <p style={{display: 'inline'}}>
-          { `${this.decodeChoices()[index]}` }
+        { `${this.decodeChoices()[index]}` }
         </p>
-      </div> )
+        </div> )
+      } else {
+        return (
+          <div className='choice' onClick={ this.handleClick }>{`${letter}) `}
+          <p style={{display: 'inline'}}>
+          { `${this.decodeChoices()[index]}` }
+          </p>
+          </div>)
+        }
+      }
+
+  checkSelected = (index, letter) => {
+    const correct = this.state.correct;
+    const gameOver = this.props.gameOver;
+    if (this.state.selected === this.decodeChoices()[index] && gameOver === false) {
+      return (
+        <div className='selected' onClick={ this.handleClick }>{`${letter}) `}
+          <p style={{display: 'inline'}}>
+            { `${this.decodeChoices()[index]}` }
+          </p>
+        </div>
+      )
+    } else if (this.state.selected === this.decodeChoices()[index] && gameOver === true) {
+      return (
+        <div className={ `selected ${ correct === this.decodeChoices()[index] ? 'correct' : 'incorrect'}` } onClick={ this.handleClick }>{`${letter}) `}
+          <p style={{display: 'inline'}}>
+            { `${this.decodeChoices()[index]}` }
+          </p>
+        </div>
+      )
+    } else if (this.state.selected !== this.decodeChoices()[index] && gameOver === true) {
+      return (
+        <div className={`choice ${ correct === this.decodeChoices()[index] ? 'correct' : ''}` } onClick={ this.handleClick }>{`${letter}) `}
+          <p style={{display: 'inline'}}>
+            { `${this.decodeChoices()[index]}` }
+          </p>
+        </div>
+      )
     } else {
       return (
-      <div className='choice' onClick={ this.handleClick }>{`${letter}) `}
-        <p style={{display: 'inline'}}>
-          { `${this.decodeChoices()[index]}` }
-        </p>
-      </div>)
+        <div className='choice' onClick={ this.handleClick }>{`${letter}) `}
+          <p style={{display: 'inline'}}>
+            { `${this.decodeChoices()[index]}` }
+          </p>
+        </div>
+      )
     }
   }
 
+
   render() {
-    const { q, id } = this.props;
+    const { q, id, gameOver } = this.props;
     return (
       <article className='question-and-answers'>
         <h4 className='question'>{ `${ id+1 }. ${ he.decode(q) }` }</h4>
