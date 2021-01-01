@@ -6,13 +6,13 @@ class Question extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      correct: '',
+      correct: he.decode(this.props.correct).trim(),
       selected: ''
     }
   }
 
   componentDidMount = () => {
-    this.setState({ correct: this.props.correct, selected: '' })
+    this.setState({ correct: he.decode(this.props.correct).trim(), selected: '' })
   }
 
   sortChoices = () => {

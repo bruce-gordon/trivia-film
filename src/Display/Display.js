@@ -18,14 +18,16 @@ const Display = ({ questions, updateAnswers, scoreQuiz, score, reset, gameOver }
     )
   })
 
-  const showScore = () => {
+  const showScore = (event) => {
+    event.preventDefault();
     scoreQuiz();
-    window.scrollTo(0, 0)
+    window.scrollTo(0, 0);
   }
 
-  const restartGame = () => {
+  const restartGame = (event) => {
+    event.preventDefault();
     reset();
-    window.scrollTo(0, 0)
+    window.scrollTo(0, 0);
   }
 
   return (
